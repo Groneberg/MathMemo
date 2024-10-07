@@ -12,3 +12,8 @@
     color: navy;
     border: 2px dotted goldenrod;
 }
+
+.matched {
+    color: #fff;
+    border: 2px solid #fff;
+}

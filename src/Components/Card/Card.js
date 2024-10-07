@@ -1,19 +1,18 @@
 import './Card.css'
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 function Card({number, isMatched, activeLimit, index, onCardClick}) {
 
     const [isActive, setIsActive] = useState(false);
-    // if (isMatched) {
-    //     console.log('This card is matched ', isMatched , ' index ', index);
-    // }
-    
-    
+
     const handleClick = () => {
         // console.log('Active Cards: ', activeLimit);
         
         if (!isActive && activeLimit >= 2 || isMatched) {
+            return;
+        }
+        if (isActive && !isMatched) {
             return;
         }
 
@@ -28,8 +27,42 @@ function Card({number, isMatched, activeLimit, index, onCardClick}) {
             });
     };
 
-    const cardClass = isActive ? 'card activ' : 'card';
-  
+    let cardClass = 'card';
+    if (isMatched) {
+        cardClass = 'card matched';
+    } 
+    if (isActive) {
+        cardClass = 'card activ';
+    } 
+
+    useEffect(() => {
+        if (isMatched && isActive) {
+            setIsActive(false);
+            const returnData = {
+                isActive: false,
+                index: index,
+            };
+            onCardClick(returnData);
+        }
+
+        if (isActive && !isMatched && activeLimit === 2) {
+            console.log('waswas');
+            
+            const timer = setTimeout(() => {
+                const timer = setTimeout(() => {
+                    setIsActive(false);
+                    const returnData = {
+                        isActive: false,
+                        index: index,
+                    };
+                    onCardClick(returnData);
+                }, 3000);
+            });
+            return () => clearTimeout(timer);
+        }
+        console.log('activeLimit ', activeLimit);
+        
+    }, [isActive, isMatched, activeLimit]);
 
     return (
         <div 
