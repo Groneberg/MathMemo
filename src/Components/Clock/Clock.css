@@ -1,0 +1,8 @@
+div.clock {
+    background-color: #fff;
+    border: 2px solid navy;
+    height: 100px;
+    width: 200px;
+    margin: 10px auto;
+    color: black;
+}

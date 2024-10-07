@@ -1,0 +1,14 @@
+.card {
+    height: 50px;
+    width: 50px;
+    background-color: rgb(255, 255, 255);
+    border: 2px solid navy;
+    color: rgb(255, 255, 255);
+    padding: 20px;
+    text-align: center;
+}
+
+.activ {
+    color: navy;
+    border: 2px dotted goldenrod;
+}
