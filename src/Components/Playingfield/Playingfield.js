@@ -2,6 +2,7 @@ import './Playingfield.css';
 
 import Clock from '../Clock/Clock';
 import Card from '../Card/Card';
+import Winbox from '../Winbox/Winbox';
 
 import Equation from '../../Model/Equation.js'
 
@@ -95,27 +96,25 @@ function Playingfield() {
             }
             
             if (matchArray.length === 2) {
-                console.log(matchArray);
-                console.log(matchindex);
                 if (matchArray[0] === matchArray[1]) {
-                    // console.log(cards);
-
                     setMatchCounter((prevMatchCounter) => {
                         console.log(prevMatchCounter + 1);
                         
                         return prevMatchCounter + 1;
                     });
-
                     cards[matchindex[0]].isActive = false;
                     cards[matchindex[0]].isMatched = true;
                     cards[matchindex[1]].isActive = false;
                     cards[matchindex[1]].isMatched = true;
-
-                    console.log('cards ', cards);
-
                 }
                 return;
             }
+        }
+    }
+
+    const checkMatchCounter = () => {
+        if (matchCounter === 8) {
+            alert('WIN');
         }
     }
 
@@ -165,8 +164,7 @@ function Playingfield() {
         
         setListItems(createListItems);  
 
-        console.log('matchCounter ', matchCounter);
-        
+        checkMatchCounter();
 
     }, [activeLimit, matchCounter]);
     
@@ -180,7 +178,7 @@ function Playingfield() {
                     {listItems}
                 </ul>
             </main>
-
+            {/* <Winbox /> */}
         </div>
     );
 }

@@ -1,19 +1,34 @@
 .card {
-    height: 50px;
-    width: 50px;
-    background-color: rgb(255, 255, 255);
-    border: 2px solid navy;
-    color: rgb(255, 255, 255);
-    padding: 20px;
+    height: 65px;
+    width: 65px;
+    /* background-color: rgb(255, 255, 255); */
+    box-sizing: border-box;
+    background: #04B2D9;
+    border: 3px solid #000000;
+    border-radius: 5px;
+    color: #04B2D9;
+
     text-align: center;
+    display: flex;
+    align-content: center;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.card p {
+    font-size: 12px;
 }
 
 .activ {
-    color: navy;
-    border: 2px dotted goldenrod;
+    color: #000000;
+    border: 3px solid #000000;
+    border-radius: 5px;
+    background: #fff;
 }
 
 .matched {
     color: #fff;
     border: 2px solid #fff;
+    background: #fff;
+
 }

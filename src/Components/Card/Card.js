@@ -46,7 +46,6 @@ function Card({number, isMatched, activeLimit, index, onCardClick}) {
         }
 
         if (isActive && !isMatched && activeLimit === 2) {
-            console.log('waswas');
             
             const timer = setTimeout(() => {
                 const timer = setTimeout(() => {
@@ -60,7 +59,6 @@ function Card({number, isMatched, activeLimit, index, onCardClick}) {
             });
             return () => clearTimeout(timer);
         }
-        console.log('activeLimit ', activeLimit);
         
     }, [isActive, isMatched, activeLimit]);
 
